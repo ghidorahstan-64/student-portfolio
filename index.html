@@ -5,886 +5,470 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nay Min Myat - EDUSN Year 9 Academic & Career Portfolio</title>
 
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Animate.css for smooth entrance animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <style>
+        .skill-levels {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            white-space: nowrap;
+        }
+
+        .skill-levels span {
+            margin-left: 4px;
+            font-weight: 500;
+        }
+
+        .skill-levels .selected-level {
+            color: #b30000;
+            font-weight: 800;
+        }
+
         :root {
             --primary-color: #b30000;
             --primary-dark: #800000;
             --secondary-color: #06b6d4;
-            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05),
-                           0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            --card-shadow: 0 10px 25px -5px rgba(0,0,0,.05), 0 8px 10px -6px rgba(0,0,0,.05);
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #fcfcfd;
-            color: #1e293b;
-            overflow-x: hidden;
+            font-family:'Plus Jakarta Sans',sans-serif;
+            background:#fcfcfd;
+            color:#1e293b;
+            overflow-x:hidden;
         }
 
-        /* Hero Header */
         .hero-section {
-            background: linear-gradient(135deg, #4a0000 0%, #b30000 100%);
-            color: white;
-            padding: 80px 0;
-            position: relative;
-            border-bottom-left-radius: 3rem;
-            border-bottom-right-radius: 3rem;
+            background:linear-gradient(135deg,#4a0000 0%,#b30000 100%);
+            color:white;
+            padding:80px 0;
+            border-bottom-left-radius:3rem;
+            border-bottom-right-radius:3rem;
         }
 
-        /* Glassmorphism Cards */
         .glass-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            border-radius: 1rem;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
+            background:rgba(255,255,255,.9);
+            backdrop-filter:blur(10px);
+            border:1px solid rgba(226,232,240,.8);
+            border-radius:1rem;
+            box-shadow:var(--card-shadow);
+            transition:all .3s ease;
         }
 
         .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 35px -10px rgba(179, 0, 0, 0.15);
+            transform:translateY(-5px);
+            box-shadow:0 20px 35px -10px rgba(179,0,0,.15);
         }
 
-        /* Progress Bar Custom Styling */
         .progress {
-            height: 12px;
-            border-radius: 6px;
-            background-color: #e2e8f0;
+            height:12px;
+            border-radius:6px;
+            background:#e2e8f0;
         }
 
         .progress-bar {
-            background: linear-gradient(90deg, #b30000 0%, #ff4d4d 100%);
-            border-radius: 6px;
-            transition: width 0.6s ease;
+            background:linear-gradient(90deg,#b30000 0%,#ff4d4d 100%);
+            border-radius:6px;
+            transition:width .6s ease;
         }
 
-        /* Checklist Item styling */
         .checklist-item {
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
-            padding: 1rem 1.25rem;
-            margin-bottom: 0.75rem;
-            background: #ffffff;
+            cursor:pointer;
+            transition:all .2s ease;
+            border:1px solid #e2e8f0;
+            border-radius:.75rem;
+            padding:1rem 1.25rem;
+            margin-bottom:.75rem;
+            background:#fff;
         }
 
         .checklist-item:hover {
-            background-color: #f8fafc;
-            border-color: #cbd5e1;
+            background:#f8fafc;
+            border-color:#cbd5e1;
         }
 
         .checklist-item.completed {
-            background-color: #f0fdf4;
-            border-color: #bbf7d0;
+            background:#f0fdf4;
+            border-color:#bbf7d0;
         }
 
         .checklist-item.completed .item-title {
-            text-decoration: line-through;
-            color: #166534;
+            text-decoration:line-through;
+            color:#166534;
         }
 
-        /* Custom Checkbox */
         .custom-checkbox {
-            width: 22px;
-            height: 22px;
-            accent-color: #b30000;
-            cursor: pointer;
+            width:22px;
+            height:22px;
+            accent-color:#b30000;
+            cursor:pointer;
         }
 
-        /* Navigation Sidebar/Tabs */
         .nav-pills .nav-link {
-            color: #475569;
-            font-weight: 600;
-            border-radius: 0.75rem;
-            padding: 0.75rem 1.25rem;
-            transition: all 0.25s ease;
+            color:#475569;
+            font-weight:600;
+            border-radius:.75rem;
+            padding:.75rem 1.25rem;
+            transition:all .25s ease;
         }
 
         .nav-pills .nav-link.active {
-            background: var(--primary-color);
-            color: white;
-            box-shadow: 0 4px 12px rgba(179, 0, 0, 0.3);
+            background:var(--primary-color);
+            color:white;
+            box-shadow:0 4px 12px rgba(179,0,0,.3);
         }
 
         .nav-pills .nav-link:hover:not(.active) {
-            background-color: #f1f5f9;
-            color: #1e293b;
+            background:#f1f5f9;
+            color:#1e293b;
         }
 
-        /* Section hidden/active management */
         .portfolio-section {
-            display: none;
-            animation: fadeIn 0.5s ease forwards;
+            display:none;
+            animation:fadeIn .5s ease forwards;
         }
 
         .portfolio-section.active-section {
-            display: block;
+            display:block;
         }
 
         @keyframes fadeIn {
             from {
-                opacity: 0;
-                transform: translateY(10px);
+                opacity:0;
+                transform:translateY(10px)
             }
-
             to {
-                opacity: 1;
-                transform: translateY(0);
+                opacity:1;
+                transform:translateY(0)
             }
         }
 
-        /* Badge styles */
         .badge-custom {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            font-weight: 600;
-            padding: 0.35rem 0.75rem;
-            border-radius: 2rem;
+            background:rgba(255,255,255,.2);
+            color:#fff;
+            font-weight:600;
+            padding:.35rem .75rem;
+            border-radius:2rem;
         }
 
-        /* Timeline for academics & career */
         .timeline {
-            border-left: 2px solid #e2e8f0;
-            margin-left: 1rem;
-            padding-left: 1.5rem;
+            border-left:2px solid #e2e8f0;
+            margin-left:1rem;
+            padding-left:1.5rem;
         }
 
         .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
+            position:relative;
+            margin-bottom:2rem;
         }
 
         .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -1.75rem;
-            top: 0.25rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #b30000;
-            border: 2px solid #ffffff;
+            content:'';
+            position:absolute;
+            left:-1.75rem;
+            top:.25rem;
+            width:12px;
+            height:12px;
+            border-radius:50%;
+            background:#b30000;
+            border:2px solid #fff;
         }
 
-        /* Skills Cards */
         .skill-card {
-            border: 1px solid #e2e8f0;
-            border-radius: 1rem;
-            padding: 1.25rem;
-            background: #ffffff;
-            height: 100%;
-            transition: all 0.25s ease;
+            border:1px solid #e2e8f0;
+            border-radius:1rem;
+            padding:1rem 1.15rem;
+            background:#fff;
+            height:100%;
         }
 
-        .skill-card:hover {
-            border-color: #fecaca;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        .skill-card h6 {
+            margin:0;
+            font-weight:700;
         }
 
-        .skill-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 0.75rem;
-            background: #fef2f2;
-            color: #b30000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            flex-shrink: 0;
+        .skill-evidence {
+            font-size:.78rem;
+            color:#64748b;
+            margin-top:.6rem;
+        }
+
+        .skill-levels {
+            font-size:.75rem;
+            color:#64748b;
+            letter-spacing:.15rem;
+            white-space:nowrap;
+        }
+
+        .skill-levels span {
+            display:inline-block;
+            margin-left:.15rem;
+            border:1px solid #cbd5e1;
+            border-radius:50%;
+            width:22px;
+            height:22px;
+            line-height:20px;
+            text-align:center;
+            letter-spacing:0;
+        }
+
+        .skill-levels span:hover {
+            background:#b30000;
+            color:#fff;
+            border-color:#b30000;
+            cursor:pointer;
+        }
+
+        .form-box {
+            background:#fff;
+            border:1px solid #e2e8f0;
+            border-radius:.8rem;
+            padding:1rem;
+            min-height:70px;
+        }
+
+        .action-table th {
+            background:#203f63;
+            color:#fff;
+        }
+
+        .action-table td,
+        .action-table th {
+            vertical-align:middle;
+        }
+
+        .resume-label {
+            color:#b30000;
+            font-weight:700;
+            font-size:.85rem;
+        }
+
+        .growth-step {
+            border-left:4px solid #b30000;
+            padding:1rem 1.25rem;
+            background:#fff;
+            border-radius:.75rem;
+        }
+
+        .section-kicker {
+            color:#b30000;
+            font-weight:800;
+            font-size:.8rem;
+            letter-spacing:.08em;
+            text-transform:uppercase;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Hero Section -->
-    <header class="hero-section text-center">
-        <div class="container animate__animated animate__fadeInDown">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto">
+<header class="hero-section text-center">
+    <div class="container animate__animated animate__fadeInDown">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto">
 
-                    <span class="badge badge-custom mb-3">
-                        EDUSN YEAR 9 PORTFOLIO
-                    </span>
+                <span class="badge badge-custom mb-3">EDUSN YEAR 9 PORTFOLIO</span>
 
-                    <h1 class="display-4 fw-bold mb-3">
-                        Nay Min Myat's Academic & Career Portfolio
-                    </h1>
+                <h1 class="display-4 fw-bold mb-3">
+                    Nay Min Myat's Academic & Career Portfolio
+                </h1>
 
-                    <p class="lead text-light opacity-85 mb-4">
-                        Smart cities research, Cambridge English qualifications,
-                        GitHub development projects, and milestone records.
-                    </p>
+                <p class="lead text-light opacity-85 mb-4">
+                    Smart cities research, Cambridge English qualifications, GitHub development projects, and milestone records.
+                </p>
 
-                    <div class="d-flex justify-content-center gap-3">
-
-                        <button
-                            class="btn btn-light text-danger fw-semibold px-4 py-2 rounded-pill shadow-sm"
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <button class="btn btn-light text-danger fw-semibold px-4 py-2 rounded-pill shadow-sm"
                             onclick="switchTab('dashboard')">
-                            <i class="fa-solid fa-list-check me-2"></i>
-                            Completion Checklist
-                        </button>
+                        <i class="fa-solid fa-list-check me-2"></i>Completion Checklist
+                    </button>
 
-                        <button
-                            class="btn btn-outline-light fw-semibold px-4 py-2 rounded-pill"
+                    <button class="btn btn-outline-light fw-semibold px-4 py-2 rounded-pill"
                             onclick="switchTab('profile')">
-                            <i class="fa-solid fa-user-graduate me-2"></i>
-                            View Profile
-                        </button>
-
-                    </div>
+                        <i class="fa-solid fa-user-graduate me-2"></i>View Profile
+                    </button>
                 </div>
+
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
 
-    <main class="container my-5">
+<main class="container my-5">
 
-        <!-- Navigation Tabs -->
-        <ul
-            class="nav nav-pills justify-content-center mb-5 gap-2 flex-wrap bg-white p-3 rounded-4 shadow-sm"
-            id="portfolioTabs"
-            role="tablist">
+    <ul class="nav nav-pills justify-content-center mb-5 gap-2 flex-wrap bg-white p-3 rounded-4 shadow-sm"
+        id="portfolioTabs"
+        role="tablist">
 
-            <li class="nav-item" role="presentation">
-                <button
-                    class="nav-link active"
-                    id="tab-dashboard"
+        <li class="nav-item">
+            <button class="nav-link active" id="tab-dashboard"
                     onclick="switchTab('dashboard')">
-                    <i class="fa-solid fa-gauge-high me-2"></i>
-                    Dashboard & Checklist
-                </button>
-            </li>
+                <i class="fa-solid fa-gauge-high me-2"></i>Dashboard & Checklist
+            </button>
+        </li>
 
-            <li class="nav-item" role="presentation">
-                <button
-                    class="nav-link"
-                    id="tab-profile"
+        <li class="nav-item">
+            <button class="nav-link" id="tab-profile"
                     onclick="switchTab('profile')">
-                    <i class="fa-solid fa-id-card me-2"></i>
-                    1 & 2. Profile & Academics
-                </button>
-            </li>
+                <i class="fa-solid fa-id-card me-2"></i>1 & 2. Profile & Academics
+            </button>
+        </li>
 
-            <li class="nav-item" role="presentation">
-                <button
-                    class="nav-link"
-                    id="tab-projects"
+        <li class="nav-item">
+            <button class="nav-link" id="tab-projects"
                     onclick="switchTab('projects')">
-                    <i class="fa-solid fa-laptop-code me-2"></i>
-                    3 & 4. Awards & Projects
-                </button>
-            </li>
+                <i class="fa-solid fa-laptop-code me-2"></i>3 & 4. Awards & Projects
+            </button>
+        </li>
 
-            <li class="nav-item" role="presentation">
-                <button
-                    class="nav-link"
-                    id="tab-activities"
+        <li class="nav-item">
+            <button class="nav-link" id="tab-activities"
                     onclick="switchTab('activities')">
-                    <i class="fa-solid fa-users-rectangle me-2"></i>
-                    5. Leadership & Activities
-                </button>
-            </li>
+                <i class="fa-solid fa-users-rectangle me-2"></i>5. Leadership & Activities
+            </button>
+        </li>
 
-            <li class="nav-item" role="presentation">
-                <button
-                    class="nav-link"
-                    id="tab-career"
+        <li class="nav-item">
+            <button class="nav-link" id="tab-career"
                     onclick="switchTab('career')">
-                    <i class="fa-solid fa-compass me-2"></i>
-                    6 & 7. Career & College
-                </button>
-            </li>
+                <i class="fa-solid fa-compass me-2"></i>6 & 7. Career & College
+            </button>
+        </li>
 
-            <li class="nav-item" role="presentation">
-                <button
-                    class="nav-link"
-                    id="tab-reflections"
+        <li class="nav-item">
+            <button class="nav-link" id="tab-reflections"
                     onclick="switchTab('reflections')">
-                    <i class="fa-solid fa-book-open me-2"></i>
-                    8 & 9. Reflections
-                </button>
-            </li>
+                <i class="fa-solid fa-book-open me-2"></i>8 & 9. Reflections
+            </button>
+        </li>
 
-        </ul>
+    </ul>
 
 
-        <!-- ====================================================== -->
-        <!-- DASHBOARD -->
-        <!-- ====================================================== -->
+    <!-- DASHBOARD -->
 
-        <section id="section-dashboard" class="portfolio-section active-section">
+    <section id="section-dashboard" class="portfolio-section active-section">
 
-            <div class="row mb-4">
-                <div class="col-lg-12">
+        <div class="row mb-4">
+            <div class="col-lg-12">
 
-                    <div class="glass-card p-4 p-md-5">
+                <div class="glass-card p-4 p-md-5">
 
-                        <div class="row align-items-center">
+                    <div class="row align-items-center">
 
-                            <div class="col-md-8">
-                                <h2 class="fw-bold mb-1">
-                                    <i class="fa-solid fa-clipboard-check text-danger me-2"></i>
-                                    Portfolio Completion Checklist
-                                </h2>
+                        <div class="col-md-8">
 
-                                <p class="text-muted mb-3 mb-md-0">
-                                    Track your final review status across all key portfolio requirements.
-                                </p>
-                            </div>
+                            <h2 class="fw-bold mb-1">
+                                <i class="fa-solid fa-clipboard-check text-danger me-2"></i>
+                                Portfolio Completion Checklist
+                            </h2>
 
-                            <div class="col-md-4 text-md-end">
-
-                                <div class="d-inline-block bg-light p-3 rounded-3 text-center border">
-                                    <span
-                                        class="fs-4 fw-bold text-danger"
-                                        id="progress-percentage">
-                                        0%
-                                    </span>
-
-                                    <div class="small text-muted">
-                                        Completed Items
-                                    </div>
-                                </div>
-
-                            </div>
+                            <p class="text-muted mb-3 mb-md-0">
+                                Track your final review status across all key portfolio requirements.
+                            </p>
 
                         </div>
 
-                        <div class="mt-4">
-                            <div class="progress">
+                        <div class="col-md-4 text-md-end">
 
-                                <div
-                                    id="main-progress-bar"
-                                    class="progress-bar"
-                                    role="progressbar"
-                                    style="width: 0%;"
-                                    aria-valuenow="0"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100">
+                            <div class="d-inline-block bg-light p-3 rounded-3 text-center border">
+
+                                <span class="fs-4 fw-bold text-danger" id="progress-percentage">
+                                    0%
+                                </span>
+
+                                <div class="small text-muted">
+                                    Completed Items
                                 </div>
 
                             </div>
+
                         </div>
 
                     </div>
 
-                </div>
-            </div>
-
-
-            <!-- Checklist -->
-            <div class="row g-3" id="checklist-container">
-                <!-- Javascript will populate dynamically -->
-            </div>
-
-        </section>
-
-
-        <!-- ====================================================== -->
-        <!-- PROFILE & ACADEMICS -->
-        <!-- ====================================================== -->
-
-        <section id="section-profile" class="portfolio-section">
-
-            <div class="row g-4">
-
-                <!-- Profile -->
-                <div class="col-lg-4">
-
-                    <div class="glass-card p-4 text-center">
-
-                        <img
-                            src="images/image.jpeg"
-                            alt="Nay Min Myat"
-                            class="rounded-circle mx-auto mb-3 shadow-sm object-fit-cover"
-                            style="width: 130px; height: 130px;">
-
-                        <h3 class="fw-bold mb-1">
-                            Nay Min Myat
-                        </h3>
-
-                        <p class="text-muted mb-2">
-                            Year 9 Student | STEM & Tech Focus
-                        </p>
-
-                        <p class="small text-muted mb-3">
-                            <i class="fa-solid fa-school me-1"></i>
-                            EDUSN | Class of 2029
-                        </p>
-
-                        <div class="d-flex justify-content-center gap-2 mb-3">
-
-                            <span class="badge bg-danger">
-                                Standing: Honor Roll
-                            </span>
-
-                            <span class="badge bg-secondary">
-                                Focus: Software & AI
-                            </span>
-
+                    <div class="mt-4">
+                        <div class="progress">
+                            <div id="main-progress-bar"
+                                 class="progress-bar"
+                                 role="progressbar"
+                                 style="width:0%;"
+                                 aria-valuenow="0"
+                                 aria-valuemin="0"
+                                 aria-valuemax="100">
+                            </div>
                         </div>
-
-                        <hr>
-
-                        <div class="text-start small text-muted">
-
-                            <p class="mb-1">
-                                <strong>School:</strong> EDUSN
-                            </p>
-
-                            <p class="mb-1">
-                                <strong>Major Interest:</strong>
-                                Computer Science & Software Engineering
-                            </p>
-
-                            <p class="mb-0">
-                                <strong>Team:</strong>
-                                A.N.S Academic Research Team
-                            </p>
-
-                        </div>
-
                     </div>
 
                 </div>
 
+            </div>
+        </div>
 
-                <!-- Profile / Academic Content -->
-                <div class="col-lg-8">
+        <div class="row g-3" id="checklist-container"></div>
 
-                    <!-- About Me -->
-                    <div class="glass-card p-4 mb-4">
+    </section>
 
-                        <h4 class="fw-bold mb-3">
-                            <i class="fa-solid fa-graduation-cap text-danger me-2"></i>
-                            1. Student Profile & Bio
-                        </h4>
 
-                        <p class="text-secondary">
-                            I am Nay Min Myat, a Year 9 student at EDUSN with a
-                            profound passion for programming, software engineering,
-                            and technology in general. I enjoy solving complex
-                            logic problems and building interactive web experiences.
-                            What matters to me is creating accessible technology
-                            that improves community welfare and operational
-                            transparency, a drive that directly inspired my recent
-                            research on smart cities. Beyond coding, I enjoy
-                            immersive gaming like Hollow Knight and Elden Ring,
-                            and hobbies like collecting Action Figures, Statues,
-                            and Gunpla, which train my strategic thinking and
-                            perseverance. After graduation, I plan to pursue
-                            computer science or engineering.
-                        </p>
+    <!-- PROFILE -->
 
+    <section id="section-profile" class="portfolio-section">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <div class="glass-card p-4 text-center">
+
+                    <img src="images/image.jpeg"
+                         alt="Nay Min Myat"
+                         class="rounded-circle mx-auto mb-3 shadow-sm object-fit-cover"
+                         style="width:130px;height:130px;">
+
+                    <h3 class="fw-bold mb-1">
+                        Nay Min Myat
+                    </h3>
+
+                    <p class="text-muted mb-2">
+                        Year 9 Student | STEM & Tech Focus
+                    </p>
+
+                    <p class="small text-muted mb-3">
+                        <i class="fa-solid fa-school me-1"></i>
+                        EDUSN | Class of 2029
+                    </p>
+
+                    <div class="d-flex justify-content-center gap-2 mb-3">
+                        <span class="badge bg-danger">
+                            Standing: Honor Roll
+                        </span>
+
+                        <span class="badge bg-secondary">
+                            Focus: Software & AI
+                        </span>
                     </div>
 
+                    <hr>
 
-                    <!-- Academic Progress -->
-                    <div class="glass-card p-4 mb-4">
+                    <div class="text-start small text-muted">
 
-                        <h4 class="fw-bold mb-4">
-                            <i class="fa-solid fa-chart-line text-danger me-2"></i>
-                            2. Academic Progress & Record
-                        </h4>
-
-                        <div class="row g-4">
-
-                            <!-- GPA -->
-                            <div class="col-md-4">
-
-                                <div class="bg-light border rounded-4 p-4 h-100 text-center">
-
-                                    <div class="text-muted small mb-2">
-                                        CURRENT GPA
-                                    </div>
-
-                                    <div class="display-5 fw-bold text-danger">
-                                        3.0
-                                        <span class="fs-5 text-muted">
-                                            /4.0
-                                        </span>
-                                    </div>
-
-                                    <p class="small text-muted mb-0 mt-2">
-                                        Current academic standing
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- Academic Overview -->
-                            <div class="col-md-8">
-
-                                <div class="border rounded-4 p-4 h-100">
-
-                                    <h6 class="fw-bold mb-3">
-                                        Academic Overview
-                                    </h6>
-
-                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
-
-                                        <span class="text-secondary">
-                                            Current Year Level
-                                        </span>
-
-                                        <span class="badge bg-danger">
-                                            Year 9
-                                        </span>
-
-                                    </div>
-
-
-                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
-
-                                        <span class="text-secondary">
-                                            Academic History
-                                        </span>
-
-                                        <span class="small fw-semibold">
-                                            Year 7 & Year 8
-                                        </span>
-
-                                    </div>
-
-
-                                    <div class="d-flex justify-content-between align-items-center">
-
-                                        <span class="text-secondary">
-                                            Academic Focus
-                                        </span>
-
-                                        <span class="small fw-semibold">
-                                            Continued Growth & Development
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- Year 7 Report -->
-                            <div class="col-md-6">
-
-                                <div class="border rounded-4 p-4 h-100">
-
-                                    <div class="d-flex align-items-center mb-3">
-
-                                        <div class="fs-4 text-danger me-3">
-                                            <i class="fa-solid fa-file-lines"></i>
-                                        </div>
-
-                                        <div>
-
-                                            <h6 class="fw-bold mb-1">
-                                                Year 7 Final Report
-                                            </h6>
-
-                                            <p class="small text-muted mb-0">
-                                                Academic record and final assessment results
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- Replace with your actual report filename -->
-                                    <a
-                                        href="year7-report.pdf"
-                                        target="_blank"
-                                        class="btn btn-sm btn-outline-danger">
-
-                                        <i class="fa-solid fa-eye me-1"></i>
-                                        View Report Card
-
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- Year 8 Report -->
-                            <div class="col-md-6">
-
-                                <div class="border rounded-4 p-4 h-100">
-
-                                    <div class="d-flex align-items-center mb-3">
-
-                                        <div class="fs-4 text-danger me-3">
-                                            <i class="fa-solid fa-file-lines"></i>
-                                        </div>
-
-                                        <div>
-
-                                            <h6 class="fw-bold mb-1">
-                                                Year 8 Final Report
-                                            </h6>
-
-                                            <p class="small text-muted mb-0">
-                                                Academic record and final assessment results
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- Replace with your actual report filename -->
-                                    <a
-                                        href="year8-report.pdf"
-                                        target="_blank"
-                                        class="btn btn-sm btn-outline-danger">
-
-                                        <i class="fa-solid fa-eye me-1"></i>
-                                        View Report Card
-
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ====================================================== -->
-                    <!-- STRENGTHS & SKILLS -->
-                    <!-- ====================================================== -->
-
-                    <div class="glass-card p-4">
-
-                        <h4 class="fw-bold mb-4">
-                            <i class="fa-solid fa-star text-danger me-2"></i>
-                            Strengths & Skills
-                        </h4>
-
-                        <p class="small text-secondary mb-4">
-                            Skills developed through academic projects,
-                            school activities, presentations, and collaborative work.
+                        <p class="mb-1">
+                            <strong>School:</strong> EDUSN
                         </p>
 
-
-                        <div class="row g-3">
-
-                            <!-- Communication -->
-                            <div class="col-md-6">
-
-                                <div class="skill-card">
-
-                                    <div class="d-flex align-items-start">
-
-                                        <div class="skill-icon me-3">
-                                            <i class="fa-solid fa-comments"></i>
-                                        </div>
-
-                                        <div>
-
-                                            <h6 class="fw-bold mb-2">
-                                                Communication & Presentation
-                                            </h6>
-
-                                            <p class="small text-secondary mb-0">
-                                                Developed confidence in communicating
-                                                ideas and presenting to an audience,
-                                                particularly through hosting school
-                                                assemblies and participating in school events.
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- Leadership -->
-                            <div class="col-md-6">
-
-                                <div class="skill-card">
-
-                                    <div class="d-flex align-items-start">
-
-                                        <div class="skill-icon me-3">
-                                            <i class="fa-solid fa-flag"></i>
-                                        </div>
-
-                                        <div>
-
-                                            <h6 class="fw-bold mb-2">
-                                                Leadership
-                                            </h6>
-
-                                            <p class="small text-secondary mb-0">
-                                                Demonstrated leadership and responsibility
-                                                through taking an active role as a school
-                                                assembly host across Year 8 and Year 9.
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- Critical Thinking -->
-                            <div class="col-md-6">
-
-                                <div class="skill-card">
-
-                                    <div class="d-flex align-items-start">
-
-                                        <div class="skill-icon me-3">
-                                            <i class="fa-solid fa-brain"></i>
-                                        </div>
-
-                                        <div>
-
-                                            <h6 class="fw-bold mb-2">
-                                                Critical Thinking & Problem-Solving
-                                            </h6>
-
-                                            <p class="small text-secondary mb-0">
-                                                Apply logical thinking to academic and
-                                                technical projects, including programming,
-                                                research, and project-based learning.
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- Collaboration -->
-                            <div class="col-md-6">
-
-                                <div class="skill-card">
-
-                                    <div class="d-flex align-items-start">
-
-                                        <div class="skill-icon me-3">
-                                            <i class="fa-solid fa-people-group"></i>
-                                        </div>
-
-                                        <div>
-
-                                            <h6 class="fw-bold mb-2">
-                                                Teamwork & Collaboration
-                                            </h6>
-
-                                            <p class="small text-secondary mb-0">
-                                                Work collaboratively with classmates during
-                                                PBL activities and group projects, contributing
-                                                ideas and working toward shared outcomes.
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- Digital Literacy -->
-                            <div class="col-md-6">
-
-                                <div class="skill-card">
-
-                                    <div class="d-flex align-items-start">
-
-                                        <div class="skill-icon me-3">
-                                            <i class="fa-solid fa-laptop-code"></i>
-                                        </div>
-
-                                        <div>
-
-                                            <h6 class="fw-bold mb-2">
-                                                Digital Literacy & Creativity
-                                            </h6>
-
-                                            <p class="small text-secondary mb-0">
-                                                Build practical skills in coding, web
-                                                development, digital design, and
-                                                technology-based projects.
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- Learning -->
-                            <div class="col-md-6">
-
-                                <div class="skill-card">
-
-                                    <div class="d-flex align-items-start">
-
-                                        <div class="skill-icon me-3">
-                                            <i class="fa-solid fa-lightbulb"></i>
-                                        </div>
-
-                                        <div>
-
-                                            <h6 class="fw-bold mb-2">
-                                                Creativity & Willingness to Learn
-                                            </h6>
-
-                                            <p class="small text-secondary mb-0">
-                                                Explore new ideas and apply newly developed
-                                                knowledge to practical projects and
-                                                technology-based work.
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
+                        <p class="mb-1">
+                            <strong>Major Interest:</strong>
+                            Computer Science & Software Engineering
+                        </p>
+
+                        <p class="mb-0">
+                            <strong>Team:</strong>
+                            A.N.S Academic Research Team
+                        </p>
 
                     </div>
 
@@ -892,153 +476,110 @@
 
             </div>
 
-        </section>
 
+            <div class="col-lg-8">
 
-        <!-- ====================================================== -->
-        <!-- AWARDS & PROJECTS -->
-        <!-- ====================================================== -->
+                <div class="glass-card p-4 mb-4">
 
-        <section id="section-projects" class="portfolio-section">
+                    <h4 class="fw-bold mb-3">
+                        <i class="fa-solid fa-graduation-cap text-danger me-2"></i>
+                        1. Student Profile & Bio
+                    </h4>
 
-            <div class="row g-4">
-
-                <!-- Awards -->
-                <div class="col-lg-6">
-
-                    <div class="glass-card p-4 h-100">
-
-                        <h4 class="fw-bold mb-4">
-                            <i class="fa-solid fa-award text-danger me-2"></i>
-                            3. Awards & Certificates
-                        </h4>
-
-
-                        <!-- Cambridge -->
-                        <div class="d-flex align-items-start mb-3 p-3 bg-white rounded-3 border">
-
-                            <div class="fs-3 text-primary me-3">
-
-                                <img
-                                    src="https://img.icons8.com/color/48/cambridge-university-press.png"
-                                    alt="Cambridge"
-                                    style="width: 32px; height: 32px;">
-
-                            </div>
-
-                            <div>
-
-                                <h6 class="fw-bold mb-1">
-                                    Cambridge English Qualifications Suite
-                                </h6>
-
-                                <p class="small text-muted mb-2">
-                                    Successfully completed and certified across
-                                    Starters, Movers, Flyers, and KET.
-                                </p>
-
-                                <div class="d-flex flex-wrap gap-1">
-
-                                    <span class="badge bg-light text-dark border">
-                                        Starters
-                                    </span>
-
-                                    <span class="badge bg-light text-dark border">
-                                        Movers
-                                    </span>
-
-                                    <span class="badge bg-light text-dark border">
-                                        Flyers
-                                    </span>
-
-                                    <span class="badge bg-light text-dark border">
-                                        KET (A2 Key)
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- Awards -->
-                        <div class="d-flex align-items-start p-3 bg-white rounded-3 border">
-
-                            <div class="fs-3 text-danger me-3">
-                                <i class="fa-solid fa-trophy"></i>
-                            </div>
-
-                            <div>
-
-                                <h6 class="fw-bold mb-1">
-                                    Outstanding Achievement Awards
-                                </h6>
-
-                                <p class="small text-muted mb-2">
-                                    Recognized with two special distinction awards
-                                    for academic progression and achievement.
-                                </p>
-
-                                <div class="d-flex flex-wrap gap-1">
-
-                                    <span class="badge bg-danger text-white">
-                                        Achievement
-                                    </span>
-
-                                    <span class="badge bg-warning text-dark">
-                                        Milestone
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <p class="text-secondary">
+                        I am Nay Min Myat, a Year 9 student at EDUSN with a profound passion for programming, software engineering, and technology in general. I enjoy solving complex logic problems and building interactive web experiences. What matters to me is creating accessible technology that improves community welfare and operational transparency, a drive that directly inspired my recent research on smart cities. Beyond coding, I enjoy immersive gaming like Hollow Knight and Elden Ring, and hobbies like collecting Action Figures, Statues, and Gunpla, which train my strategic thinking and perseverance. After graduation, I plan to pursue computer science or engineering.
+                    </p>
 
                 </div>
 
 
-                <!-- Projects -->
-                <div class="col-lg-6">
+                <div class="glass-card p-4 mb-4">
 
-                    <div class="glass-card p-4 h-100">
+                    <h4 class="fw-bold mb-4">
+                        <i class="fa-solid fa-chart-line text-danger me-2"></i>
+                        2. Academic Progress & Record
+                    </h4>
 
-                        <h4 class="fw-bold mb-4">
-                            <i class="fa-solid fa-diagram-project text-danger me-2"></i>
-                            4. Best Work / Projects Included
-                        </h4>
+                    <div class="row g-4">
 
+                        <div class="col-md-4">
 
-                        <!-- Project 1 -->
-                        <div class="card border mb-3">
+                            <div class="bg-light border rounded-4 p-4 h-100 text-center">
 
-                            <div class="card-body">
+                                <div class="text-muted small mb-2">
+                                    CURRENT GPA
+                                </div>
 
-                                <h5 class="card-title fw-bold">
-                                    Yangon-Digital-Governance Repository
-                                </h5>
+                                <div class="display-5 fw-bold text-danger">
+                                    3.0<span class="fs-5 text-muted">/4.0</span>
+                                </div>
 
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    GitHub / Collaborative Research (A.N.S Team)
-                                </h6>
-
-                                <p class="card-text small text-secondary">
-                                    Contributed to municipal digital governance
-                                    research and technical repository maintenance
-                                    focused on smart city community engagement.
+                                <p class="small text-muted mb-0 mt-2">
+                                    Current academic standing
                                 </p>
 
-                                <a
-                                    href="https://github.com/abpt2012/Yangon-Digital-Governance"
-                                    target="_blank"
-                                    class="btn btn-sm btn-outline-danger">
+                            </div>
 
-                                    <i class="fa-brands fa-github me-1"></i>
-                                    View Repository
+                        </div>
 
+
+                        <div class="col-md-8">
+
+                            <div class="border rounded-4 p-4 h-100">
+
+                                <h6 class="fw-bold mb-3">
+                                    Academic Overview
+                                </h6>
+
+                                <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                                    <span class="text-secondary">Current Year Level</span>
+                                    <span class="badge bg-danger">Year 9</span>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                                    <span class="text-secondary">Academic History Available</span>
+                                    <span class="small fw-semibold">Year 7 & Year 8 Final Reports</span>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-secondary">Academic Focus</span>
+                                    <span class="small fw-semibold">Continued Growth & Development</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="border rounded-4 p-4 h-100">
+
+                                <div class="d-flex align-items-center mb-3">
+
+                                    <div class="fs-4 text-danger me-3">
+                                        <i class="fa-solid fa-file-lines"></i>
+                                    </div>
+
+                                    <div>
+
+                                        <h6 class="fw-bold mb-1">
+                                            Year 7 Final Report
+                                        </h6>
+
+                                        <p class="small text-muted mb-0">
+                                            Academic record and final assessment results
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <a href="year7-report.pdf"
+                                   target="_blank"
+                                   class="btn btn-sm btn-outline-danger">
+                                    <i class="fa-solid fa-eye me-1"></i>
+                                    View Report Card
                                 </a>
 
                             </div>
@@ -1046,44 +587,37 @@
                         </div>
 
 
-                        <!-- Project 2 -->
-                        <div class="card border">
+                        <div class="col-md-6">
 
-                            <div class="card-body">
+                            <div class="border rounded-4 p-4 h-100">
 
-                                <h5 class="card-title fw-bold">
-                                    Arduino Air Purifier (Year 8 Science PBL)
-                                </h5>
+                                <div class="d-flex align-items-center mb-3">
 
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    Physical Computing / Microcontroller Logic & Hardware
-                                </h6>
+                                    <div class="fs-4 text-danger me-3">
+                                        <i class="fa-solid fa-file-lines"></i>
+                                    </div>
 
-                                <p class="card-text small text-secondary">
-                                    Designed and built an automated air purifier
-                                    prototype using Arduino microcontrollers,
-                                    embedded logic programming, sensors, and
-                                    hardware components to measure and improve
-                                    indoor air quality.
-                                </p>
+                                    <div>
 
+                                        <h6 class="fw-bold mb-1">
+                                            Year 8 Final Report
+                                        </h6>
 
-                                <div class="my-3 text-center">
+                                        <p class="small text-muted mb-0">
+                                            Academic record and final assessment results
+                                        </p>
 
-                                    <img
-                                        src="images/arduino.jpg"
-                                        alt="Air Purifier"
-                                        class="img-fluid rounded border shadow-sm"
-                                        style="max-height: 160px; object-fit: cover;">
-
-                                    <img
-                                        src="images/Air quality.png"
-                                        alt="Arduino Code"
-                                        class="img-fluid rounded border shadow-sm"
-                                        style="max-height: 160px; object-fit: cover;">
+                                    </div>
 
                                 </div>
 
+                                <a href="year8-report.pdf"
+                                   target="_blank"
+                                   class="btn btn-sm btn-outline-danger">
+                                    <i class="fa-solid fa-eye me-1"></i>
+                                    View Report Card
+                                </a>
+
                             </div>
 
                         </div>
@@ -1092,601 +626,1196 @@
 
                 </div>
 
-            </div>
 
-        </section>
+                <!-- COLLEGE READINESS SKILLS -->
 
+                <div class="glass-card p-4">
 
-        <!-- ====================================================== -->
-        <!-- ACTIVITIES & LEADERSHIP -->
-        <!-- ====================================================== -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
 
-        <section id="section-activities" class="portfolio-section">
-
-            <div class="row g-4 justify-content-center">
-
-                <div class="col-lg-8">
-
-                    <div class="glass-card p-4 h-100">
-
-                        <h4 class="fw-bold mb-4">
-                            <i class="fa-solid fa-people-group text-danger me-2"></i>
-                            5. Activities & Leadership Documented
+                        <h4 class="fw-bold mb-0">
+                            <i class="fa-solid fa-list-check text-danger me-2"></i>
+                            College Readiness Skills
                         </h4>
 
-                        <div class="timeline">
-
-
-                            <!-- Assembly -->
-                            <div class="timeline-item">
-
-                                <h6 class="fw-bold mb-1">
-                                    School Assembly Host — Year 8 & Year 9
-                                </h6>
-
-                                <p class="small text-muted mb-1">
-                                    School Leadership & Public Speaking
-                                </p>
-
-                                <p class="small text-secondary mb-0">
-                                    Served as a host for school assemblies across
-                                    Years 8 and 9, developing public speaking,
-                                    communication, and presentation skills while
-                                    confidently engaging with the school community.
-                                </p>
-
-                            </div>
-
-
-                            <!-- Performing Arts -->
-                            <div class="timeline-item">
-
-                                <h6 class="fw-bold mb-1">
-                                    Performing Arts & School Events Participant
-                                </h6>
-
-                                <p class="small text-muted mb-1">
-                                    School Events & Collaborative Performance
-                                </p>
-
-                                <p class="small text-secondary mb-0">
-                                    Participated in role-play and dance performances
-                                    for two school events, contributing to collaborative
-                                    rehearsals and live presentations while developing
-                                    confidence and teamwork skills.
-                                </p>
-
-                            </div>
-
-
-                            <!-- PBL -->
-                            <div class="timeline-item">
-
-                                <h6 class="fw-bold mb-1">
-                                    Project-Based Learning (PBL) Collaborator
-                                </h6>
-
-                                <p class="small text-muted mb-1">
-                                    Teamwork & Project Collaboration
-                                </p>
-
-                                <p class="small text-secondary mb-0">
-                                    Collaborated with classmates on project-based
-                                    learning activities, contributing ideas,
-                                    coordinating tasks, and working toward shared
-                                    project outcomes through effective teamwork
-                                    and communication.
-                                </p>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ====================================================== -->
-        <!-- CAREER & COLLEGE -->
-        <!-- ====================================================== -->
-
-        <section id="section-career" class="portfolio-section">
-
-            <div class="row g-4 justify-content-center">
-
-                <!-- Career -->
-                <div class="col-lg-6">
-
-                    <div class="glass-card p-4 h-100">
-
-                        <h4 class="fw-bold mb-3">
-                            <i class="fa-solid fa-compass text-danger me-2"></i>
-                            6. Career Exploration
-                        </h4>
-
-                        <p class="small text-secondary">
-                            Exploring software engineering, full-stack web
-                            development, and civic technology. Investigating
-                            how digital governance tools can improve urban
-                            sustainability.
-                        </p>
-
-                        <span class="badge bg-light text-dark">
-                            Goal: Software Architect & Developer
+                        <span class="section-kicker">
+                            Skills
                         </span>
 
                     </div>
 
-                </div>
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-0">Time management</h6>
+                                    <div class="skill-levels">
+                                        Level:
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span class="selected-level">3</span>
+                                        <span>4</span>
+                                        <span>5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
-                <!-- College -->
-                <div class="col-lg-6">
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-0">Organization</h6>
+                                    <div class="skill-levels">
+                                        Level:
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span class="selected-level">4</span>
+                                        <span>5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="glass-card p-4 h-100">
 
-                        <h4 class="fw-bold mb-3">
-                            <i class="fa-solid fa-university text-danger me-2"></i>
-                            7. College & Major Plan
-                        </h4>
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-0">Study habits</h6>
+                                    <div class="skill-levels">
+                                        Level:
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span class="selected-level">3</span>
+                                        <span>4</span>
+                                        <span>5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                        <ul class="list-unstyled small text-secondary">
 
-                            <li class="mb-2">
-                                <i class="fa-solid fa-check text-success me-2"></i>
-                                <strong>Intended Major:</strong>
-                                Bachelor of Science in Computer Science
-                            </li>
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-0">Research</h6>
+                                    <div class="skill-levels">
+                                        Level:
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span class="selected-level">4</span>
+                                        <span>5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            <li class="mb-2">
-                                <i class="fa-solid fa-check text-success me-2"></i>
-                                <strong>Focus:</strong>
-                                Software Development & UI/UX Design
-                            </li>
 
-                            <li class="mb-2">
-                                <i class="fa-solid fa-check text-success me-2"></i>
-                                <strong>Next Milestone:</strong>
-                                Maintain an active GitHub portfolio and
-                                develop advanced programming skills.
-                            </li>
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-0">Critical thinking</h6>
+                                    <div class="skill-levels">
+                                        Level:
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span class="selected-level">4</span>
+                                        <span>5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                        </ul>
+
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-0">Problem-solving</h6>
+                                    <div class="skill-levels">
+                                        Level:
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span class="selected-level">4</span>
+                                        <span>5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-0">Writing</h6>
+                                    <div class="skill-levels">
+                                        Level:
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span class="selected-level">3</span>
+                                        <span>4</span>
+                                        <span>5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-0">Presentation</h6>
+                                    <div class="skill-levels">
+                                        Level:
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span class="selected-level">4</span>
+                                        <span>5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-0">Teamwork</h6>
+                                    <div class="skill-levels">
+                                        Level:
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span class="selected-level">4</span>
+                                        <span>5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-0">Digital literacy</h6>
+                                    <div class="skill-levels">
+                                        Level:
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span>4</span>
+                                        <span class="selected-level">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 
                 </div>
 
             </div>
-
-        </section>
-
-
-        <!-- ====================================================== -->
-        <!-- REFLECTIONS -->
-        <!-- ====================================================== -->
-
-        <section id="section-reflections" class="portfolio-section">
-
-            <div class="row g-4 justify-content-center">
-
-                <!-- Grade Reflection -->
-                <div class="col-lg-6 mb-4">
-
-                    <div class="glass-card p-4 h-100">
-
-                        <h4 class="fw-bold mb-3">
-                            <i class="fa-solid fa-lightbulb text-danger me-2"></i>
-                            8. Grade Reflections
-                        </h4>
-
-                        <p class="small text-secondary">
-                            "Working on smart cities research and ICT
-                            project-based learning taught me how independent
-                            technical research translates into real-world
-                            applications. I improved my version control and
-                            UI/UX design workflows."
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Final Reflection -->
-                <div class="col-lg-6 mb-4">
-
-                    <div class="glass-card p-4 h-100">
-
-                        <h4 class="fw-bold mb-3">
-                            <i class="fa-solid fa-flag-checkered text-danger me-2"></i>
-                            9. Final Reflection
-                        </h4>
-
-                        <p class="small text-secondary">
-                            "This portfolio reflects my growth from Year 8
-                            into Year 9 at EDUSN. By combining coding,
-                            collaborative research with the A.N.S team,
-                            and UI/UX design, I am building the foundation
-                            for a future in software engineering."
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Teacher Recommendation -->
-                <div class="col-lg-12">
-
-                    <div class="glass-card p-4 h-100">
-
-                        <h4 class="fw-bold mb-3">
-                            <i class="fa-solid fa-chalkboard-user text-danger me-2"></i>
-                            Teacher's Recommendation
-                        </h4>
-
-                        <p class="small text-secondary">
-                            Mr. Zwe Htet Naing -
-                            "Nay Min Myat is a good communicator who has
-                            demonstrated strong potential as a leader.
-                            He possesses excellent critical-thinking skills
-                            and is capable of developing innovative ideas.
-                            He has a genuine love for learning and is able
-                            to present his ideas clearly and confidently.
-                            He also applies the skills and knowledge he
-                            develops effectively in his projects, demonstrating
-                            both creativity and a willingness to put his
-                            learning into practice."
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- Footer -->
-    <footer class="text-center py-4 bg-light mt-5 border-top">
-
-        <div class="container text-muted small">
-
-            <p class="mb-0">
-                Nay Min Myat - EDUSN Year 9 Portfolio &copy; 2026.
-                All rights reserved.
-            </p>
 
         </div>
 
-    </footer>
+    </section>
 
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- PROJECTS -->
+
+    <section id="section-projects" class="portfolio-section">
+
+        <div class="row g-4">
+
+            <div class="col-lg-6">
+
+                <div class="glass-card p-4 h-100">
+
+                    <h4 class="fw-bold mb-4">
+                        <i class="fa-solid fa-award text-danger me-2"></i>
+                        3. Awards & Certificates
+                    </h4>
+
+                    <div class="d-flex align-items-start mb-3 p-3 bg-white rounded-3 border">
+
+                        <div class="fs-3 text-primary me-3">
+                            <img src="https://img.icons8.com/color/48/cambridge-university-press.png"
+                                 alt="Cambridge"
+                                 style="width:32px;height:32px;">
+                        </div>
+
+                        <div>
+
+                            <h6 class="fw-bold mb-1">
+                                Cambridge English Qualifications Suite
+                            </h6>
+
+                            <p class="small text-muted mb-2">
+                                Successfully completed and certified across Starters, Movers, Flyers, and KET.
+                            </p>
+
+                            <div class="d-flex flex-wrap gap-1">
+                                <span class="badge bg-light text-dark border">Starters</span>
+                                <span class="badge bg-light text-dark border">Movers</span>
+                                <span class="badge bg-light text-dark border">Flyers</span>
+                                <span class="badge bg-light text-dark border">KET (A2 Key)</span>
+                            </div>
+
+                        </div>
+
+                    </div>
 
 
-    <script>
+                    <div class="d-flex align-items-start p-3 bg-white rounded-3 border">
 
-        // ==========================================================
-        // CHECKLIST
-        // ==========================================================
+                        <div class="fs-3 text-danger me-3">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
 
-        const checklistItems = [
+                        <div>
 
-            {
-                id: 1,
-                title: "Student profile completed",
-                section: "profile",
-                completed: true
-            },
+                            <h6 class="fw-bold mb-1">
+                                Outstanding Achievement Awards (Dual Milestones)
+                            </h6>
 
-            {
-                id: 2,
-                title: "Academic record updated",
-                section: "profile",
-                completed: true
-            },
+                            <p class="small text-muted mb-2">
+                                Recognized with two consecutive special distinction awards for sequential progression and high proficiency performance.
+                            </p>
 
-            {
-                id: 3,
-                title: "Awards / certificates added",
-                section: "projects",
-                completed: true
-            },
+                            <div class="d-flex flex-wrap gap-1">
+                                <span class="badge bg-danger text-white">Sequential Progression</span>
+                                <span class="badge bg-warning text-dark">Milestone Excellence</span>
+                            </div>
 
-            {
-                id: 4,
-                title: "Best work / projects included",
-                section: "projects",
-                completed: true
-            },
+                        </div>
 
-            {
-                id: 5,
-                title: "Activities & leadership documented",
-                section: "activities",
-                completed: true
-            },
+                    </div>
 
-            {
-                id: 6,
-                title: "Career exploration completed",
-                section: "career",
-                completed: true
-            },
+                </div>
 
-            {
-                id: 7,
-                title: "College list and major plan completed",
-                section: "career",
-                completed: true
-            },
-
-            {
-                id: 8,
-                title: "Grade reflections completed",
-                section: "reflections",
-                completed: true
-            },
-
-            {
-                id: 9,
-                title: "Final reflection completed",
-                section: "reflections",
-                completed: true
-            }
-
-        ];
+            </div>
 
 
-        // ==========================================================
-        // INITIALIZE CHECKLIST
-        // ==========================================================
+            <div class="col-lg-6">
 
-        document.addEventListener("DOMContentLoaded", () => {
+                <div class="glass-card p-4 h-100">
 
-            renderChecklist();
-            updateProgress();
+                    <h4 class="fw-bold mb-4">
+                        <i class="fa-solid fa-diagram-project text-danger me-2"></i>
+                        4. Best Work / Projects Included
+                    </h4>
 
-        });
+                    <div class="card border mb-3">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title fw-bold">
+                                Yangon-Digital-Governance Repository
+                            </h5>
+
+                            <h6 class="card-subtitle mb-2 text-muted small">
+                                GitHub / Collaborative Research (A.N.S Team)
+                            </h6>
+
+                            <p class="card-text small text-secondary">
+                                Contributed to municipal digital governance research and technical repository maintenance focused on smart city community engagement.
+                            </p>
+
+                            <a href="https://github.com/abpt2012/Yangon-Digital-Governance"
+                               target="_blank"
+                               class="btn btn-sm btn-outline-danger">
+                                <i class="fa-brands fa-github me-1"></i>
+                                View Repository
+                            </a>
+
+                        </div>
+
+                    </div>
 
 
-        // ==========================================================
-        // RENDER CHECKLIST
-        // ==========================================================
+                    <div class="card border">
 
-        function renderChecklist() {
+                        <div class="card-body">
 
-            const container =
-                document.getElementById("checklist-container");
+                            <h5 class="card-title fw-bold">
+                                Arduino Air Purifier (Year 8 Science PBL)
+                            </h5>
 
-            container.innerHTML = "";
+                            <h6 class="card-subtitle mb-2 text-muted small">
+                                Physical Computing / Microcontroller Logic & Hardware Parts
+                            </h6>
+
+                            <p class="card-text small text-secondary">
+                                Designed and built an automated air purifier prototype using Arduino microcontrollers, embedded logic programming, sensors, and hardware components to measure and improve indoor air quality.
+                            </p>
+
+                            <div class="my-3 text-center">
+
+                                <img src="images/Air quality.png"
+                                     alt="Air Purifier"
+                                     class="img-fluid rounded border shadow-sm me-2"
+                                     style="max-height:160px;object-fit:cover;">
+
+                                <img src="images/arduino.jpg"
+                                     alt="Arduino Code"
+                                     class="img-fluid rounded border shadow-sm"
+                                     style="max-height:160px;object-fit:cover;">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
-            checklistItems.forEach((item, index) => {
+    <!-- ACTIVITIES -->
 
-                const col =
-                    document.createElement("div");
+    <section id="section-activities" class="portfolio-section">
 
-                col.className = "col-md-6";
+        <div class="row g-4 justify-content-center">
 
+            <div class="col-lg-8">
 
-                col.innerHTML = `
+                <div class="glass-card p-4 h-100">
 
-                    <div
-                        class="checklist-item d-flex align-items-center justify-content-between
-                        ${item.completed ? 'completed' : ''}"
-                        onclick="toggleChecklist(${item.id})">
+                    <h4 class="fw-bold mb-4">
+                        <i class="fa-solid fa-people-group text-danger me-2"></i>
+                        5. Activities & Leadership Documented
+                    </h4>
 
-                        <div class="d-flex align-items-center gap-3">
+                    <div class="timeline">
 
-                            <input
-                                type="checkbox"
-                                class="custom-checkbox form-check-input m-0"
-                                ${item.completed ? 'checked' : ''}
-                                onclick="event.stopPropagation();
-                                toggleChecklist(${item.id})">
+                        <div class="timeline-item">
 
-                            <span class="item-title fw-semibold text-secondary">
-                                ${index + 1}. ${item.title}
-                            </span>
+                            <h6 class="fw-bold mb-1">
+                                School Assembly Host — Year 8 & Year 9
+                            </h6>
+
+                            <p class="small text-muted mb-1">
+                                School Leadership & Public Speaking
+                            </p>
+
+                            <p class="small text-secondary mb-0">
+                                Served as a host for school assemblies across Years 8 and 9, developing public speaking, communication, and presentation skills while confidently engaging with the school community.
+                            </p>
 
                         </div>
 
 
-                        <button
-                            class="btn btn-sm btn-link text-decoration-none text-danger p-0"
-                            onclick="event.stopPropagation();
-                            switchTab('${item.section}')"
-                            title="Go to section">
+                        <div class="timeline-item">
 
-                            <i class="fa-solid fa-arrow-right"></i>
+                            <h6 class="fw-bold mb-1">
+                                Performing Arts & School Events Participant
+                            </h6>
 
-                        </button>
+                            <p class="small text-muted mb-1">
+                                School Events & Collaborative Performance
+                            </p>
+
+                            <p class="small text-secondary mb-0">
+                                Participated in role-play and dance performances for two school events, contributing to collaborative rehearsals and live presentations while developing confidence and teamwork skills.
+                            </p>
+
+                        </div>
+
+
+                        <div class="timeline-item">
+
+                            <h6 class="fw-bold mb-1">
+                                Project-Based Learning (PBL) Collaborator
+                            </h6>
+
+                            <p class="small text-muted mb-1">
+                                Teamwork & Project Collaboration
+                            </p>
+
+                            <p class="small text-secondary mb-0">
+                                Collaborated with classmates on project-based learning activities, contributing ideas, coordinating tasks, and working toward shared project outcomes through effective teamwork and communication.
+                            </p>
+
+                        </div>
 
                     </div>
 
-                `;
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
-                container.appendChild(col);
+    <!-- CAREER & COLLEGE -->
 
-            });
+    <section id="section-career" class="portfolio-section">
+
+        <div class="row g-4 justify-content-center">
+
+
+            <!-- CAREER EXPLORATION -->
+
+            <div class="col-lg-6">
+
+                <div class="glass-card p-4 h-100">
+
+                    <h4 class="fw-bold mb-3">
+                        <i class="fa-solid fa-compass text-danger me-2"></i>
+                        6. Career Exploration
+                    </h4>
+
+                    <p class="small text-secondary">
+                        Exploring software engineering, full-stack web development, and civic technology. Investigating how digital governance tools can improve urban sustainability.
+                    </p>
+
+                    <span class="badge bg-light text-dark">
+                        Goal: Software Architect & Developer
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- COLLEGE & MAJOR PLAN + COLLEGE LIST -->
+
+            <div class="col-lg-6">
+
+                <div class="glass-card p-4 h-100">
+
+                    <h4 class="fw-bold mb-3">
+                        <i class="fa-solid fa-university text-danger me-2"></i>
+                        7. College & Major Plan
+                    </h4>
+
+                    <ul class="list-unstyled small text-secondary mb-4">
+
+                        <li class="mb-2">
+                            <i class="fa-solid fa-check text-success me-2"></i>
+                            <strong>Intended Major:</strong>
+                            Bachelor of Science in Computer Science
+                        </li>
+
+                        <li class="mb-2">
+                            <i class="fa-solid fa-check text-success me-2"></i>
+                            <strong>Focus:</strong>
+                            Software Development & UI/UX Design
+                        </li>
+
+                        <li class="mb-2">
+                            <i class="fa-solid fa-check text-success me-2"></i>
+                            <strong>Next Milestone:</strong>
+                            Maintain active GitHub portfolio and master advanced programming languages.
+                        </li>
+
+                    </ul>
+
+
+                    <h6 class="fw-bold mb-3">
+                        College / University List
+                    </h6>
+
+
+                    <div class="border rounded-3 p-3 mb-2">
+
+                        <strong>Trinity College Dublin</strong>
+
+                        <div class="small text-muted">
+                            Ireland • Computer Science
+                        </div>
+
+                    </div>
+
+
+                    <div class="border rounded-3 p-3 mb-2">
+
+                        <strong>University of Galway</strong>
+
+                        <div class="small text-muted">
+                            Ireland • Computer Science / Computer Engineering
+                        </div>
+
+                    </div>
+
+
+                    <div class="border rounded-3 p-3 mb-2">
+
+                        <strong>Université Paris-Saclay</strong>
+
+                        <div class="small text-muted">
+                            France • Computer Science / Engineering
+                        </div>
+
+                    </div>
+
+
+                    <div class="border rounded-3 p-3">
+
+                        <strong>Sorbonne Université</strong>
+
+                        <div class="small text-muted">
+                            France • Computer Science
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTION PLAN -->
+
+            <div class="col-lg-10">
+
+                <div class="glass-card p-4">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <h4 class="fw-bold mb-0">
+                            College & Career Action Plan
+                        </h4>
+
+                        <span class="section-kicker">
+                            Action Plan
+                        </span>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered action-table mb-0">
+
+                            <thead>
+
+                                <tr>
+                                    <th>Goal</th>
+                                    <th>Action Steps</th>
+                                    <th>Timeline</th>
+                                    <th>Evidence of Success</th>
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Strengthen academic performance</td>
+                                    <td>Continue improving study routines and track academic progress.</td>
+                                    <td>Year 9 → IGCSE / O Level</td>
+                                    <td>Updated report cards and GPA progress</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Build a stronger technical portfolio</td>
+                                    <td>Continue developing projects and maintaining GitHub repositories.</td>
+                                    <td>Year 9 → IGCSE / O Level → Foundation Year</td>
+                                    <td>Completed projects and active GitHub portfolio</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Explore computer science pathways</td>
+                                    <td>Research universities, courses, majors and admission requirements.</td>
+                                    <td>Year 9 → IGCSE / O Level</td>
+                                    <td>College research notes and shortlist</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Develop programming skills</td>
+                                    <td>Learn more advanced programming languages and software development practices.</td>
+                                    <td>Year 9 → University</td>
+                                    <td>New projects demonstrating learned skills</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Prepare for future applications</td>
+                                    <td>Collect certificates, projects, reflections and other evidence of development.</td>
+                                    <td>Year 9 → IGCSE / O Level → Foundation Year</td>
+                                    <td>Updated portfolio and application materials</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESUME SNAPSHOT -->
+
+            <div class="col-lg-10">
+
+                <div class="glass-card p-4">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <h4 class="fw-bold mb-0">
+                            Student Resume Snapshot
+                        </h4>
+
+                        <span class="section-kicker">
+                            Application Preparation
+                        </span>
+
+                    </div>
+
+
+                    <div class="row g-3 mb-3">
+
+                        <div class="col-md-6">
+
+                            <div class="form-box">
+
+                                <div class="resume-label mb-1">
+                                    Name
+                                </div>
+
+                                <h5 class="fw-bold mb-0">
+                                    Nay Min Myat
+                                </h5>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="form-box">
+
+                                <div class="resume-label mb-1">
+                                    Email / Contact
+                                </div>
+
+                                <h5 class="fw-bold mb-0">
+                                    Add contact information
+                                </h5>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row g-3">
+
+
+                        <div class="col-md-6">
+
+                            <div class="form-box h-100">
+
+                                <div class="resume-label mb-2">
+                                    Education
+                                </div>
+
+                                <p class="fw-semibold mb-0">
+                                    EDUSN • Class of 2029 • Year 9 student • Current GPA 3.0/4.0
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="form-box h-100">
+
+                                <div class="resume-label mb-2">
+                                    Leadership & Activities
+                                </div>
+
+                                <p class="fw-semibold mb-0">
+                                    School assembly host • Role-play and dance performances • PBL collaboration
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="form-box h-100">
+
+                                <div class="resume-label mb-2">
+                                    Skills
+                                </div>
+
+                                <p class="fw-semibold mb-0">
+                                    Communication • Presentation • Critical thinking • Problem-solving • Teamwork • Digital literacy
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="form-box h-100">
+
+                                <div class="resume-label mb-2">
+                                    Service / Projects
+                                </div>
+
+                                <p class="fw-semibold mb-0">
+                                    Yangon Digital Governance Repository • Arduino Air Purifier PBL • Smart city research
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REFLECTIONS -->
+
+    <section id="section-reflections" class="portfolio-section">
+
+        <div class="row g-4 justify-content-center">
+
+
+            <div class="col-lg-6 mb-4">
+
+                <div class="glass-card p-4 h-100">
+
+                    <h4 class="fw-bold mb-3">
+                        <i class="fa-solid fa-lightbulb text-danger me-2"></i>
+                        8. Grade Reflections
+                    </h4>
+
+                    <p class="small text-secondary">
+                        "Working on smart cities research and ICT project-based learning taught me how independent technical research translates into real-world applications. I improved my version control and UI/UX design workflows."
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6 mb-4">
+
+                <div class="glass-card p-4 h-100">
+
+                    <h4 class="fw-bold mb-3">
+                        <i class="fa-solid fa-flag-checkered text-danger me-2"></i>
+                        9. Final Reflection
+                    </h4>
+
+                    <p class="small text-secondary">
+                        "This portfolio reflects my growth from Year 8 into Year 9 at EDUSN. By combining coding, collaborative research with the A.N.S team, and UI/UX design, I am building the foundation for a future in software engineering."
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- MY GROWTH -->
+
+            <div class="col-lg-10">
+
+                <div class="glass-card p-4">
+
+                    <div class="text-center mb-4">
+
+                        <h2 class="fw-bold text-danger mb-1">
+                            My Growth
+                        </h2>
+
+                        <p class="text-muted mb-0">
+                            THEN → NOW → NEXT
+                        </p>
+
+                    </div>
+
+
+                    <div class="row g-4">
+
+
+                        <div class="col-md-4">
+
+                            <div class="growth-step h-100">
+
+                                <div class="section-kicker mb-2">
+                                    Then
+                                </div>
+
+                                <h5 class="fw-bold">
+                                    Something I struggled with
+                                </h5>
+
+                                <p class="small text-secondary mb-0">
+                                    Earlier in my school journey, I struggled with staying focused on my schoolwork, maintaining a consistent attention span, and developing effective study habits. I needed to become more disciplined with how I used my time so that I could focus more on learning.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-4">
+
+                            <div class="growth-step h-100">
+
+                                <div class="section-kicker mb-2">
+                                    Now
+                                </div>
+
+                                <h5 class="fw-bold">
+                                    How I've improved
+                                </h5>
+
+                                <p class="small text-secondary mb-0">
+                                    I am now trying my best to put my phone aside whenever possible when I need to focus. I have also started changing the way I use the internet by trying to use it more for learning, research, and developing useful skills instead of only for entertainment.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-4">
+
+                            <div class="growth-step h-100">
+
+                                <div class="section-kicker mb-2">
+                                    Next
+                                </div>
+
+                                <h5 class="fw-bold">
+                                    What I will continue developing
+                                </h5>
+
+                                <p class="small text-secondary mb-0">
+                                    Moving forward, I want to continue improving my study habits and become more consistent with my learning. I also want to develop my skills in computer science, programming, computer hardware, and other areas of technology that will help me prepare for my future studies and career.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TEACHER RECOMMENDATION -->
+
+            <div class="col-lg-12">
+
+                <div class="glass-card p-4 h-100">
+
+                    <h4 class="fw-bold mb-3">
+                        <i class="fa-solid fa-chalkboard-user text-danger me-2"></i>
+                        Teacher's Recommendation
+                    </h4>
+
+                    <p class="small text-secondary">
+                        Mr. Zwe Htet Naing - "Nay Min Myat is a good communicator who has demonstrated strong potential as a leader. He possesses excellent critical-thinking skills and is capable of developing innovative ideas. He has a genuine love for learning and is able to present his ideas clearly and confidently. He also applies the skills and knowledge he develops effectively in his projects, demonstrating both creativity and a willingness to put his learning into practice."
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="text-center py-5 bg-light mt-5 border-top">
+
+    <div class="container">
+
+        <h5 class="fw-bold mb-3">
+            Get in Touch
+        </h5>
+
+
+        <div class="d-flex justify-content-center flex-wrap gap-3 mb-3">
+
+            <a href="mailto:nayminmyat24sep@gmail.com"
+               class="btn btn-outline-danger rounded-pill px-4">
+
+                <i class="fa-solid fa-envelope me-2"></i>
+                Email Me
+
+            </a>
+
+
+            <a href="https://teams.microsoft.com/l/chat/0/0?users=nayminmyat@edusnschool.co.uk"
+               target="_blank"
+               class="btn btn-outline-danger rounded-pill px-4">
+
+                <i class="fa-solid fa-users me-2"></i>
+                Microsoft Teams
+
+            </a>
+
+        </div>
+
+
+        <p class="text-muted small mb-0">
+            Nay Min Myat — EDUSN Year 9 Portfolio &copy; 2026
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+    const checklistItems = [
+
+        {
+            id:1,
+            title:"Student profile completed",
+            section:"profile",
+            completed:true
+        },
+
+        {
+            id:2,
+            title:"Academic record updated",
+            section:"profile",
+            completed:true
+        },
+
+        {
+            id:3,
+            title:"Awards / certificates added",
+            section:"projects",
+            completed:true
+        },
+
+        {
+            id:4,
+            title:"Best work / projects included",
+            section:"projects",
+            completed:true
+        },
+
+        {
+            id:5,
+            title:"Activities & leadership documented",
+            section:"activities",
+            completed:true
+        },
+
+        {
+            id:6,
+            title:"Career exploration completed",
+            section:"career",
+            completed:true
+        },
+
+        {
+            id:7,
+            title:"College list and major plan completed",
+            section:"career",
+            completed:true
+        },
+
+        {
+            id:8,
+            title:"Grade reflections completed",
+            section:"reflections",
+            completed:true
+        },
+
+        {
+            id:9,
+            title:"Final reflection completed",
+            section:"reflections",
+            completed:true
+        }
+
+    ];
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        renderChecklist();
+        updateProgress();
+    });
+
+
+    function renderChecklist() {
+
+        const container = document.getElementById("checklist-container");
+
+        container.innerHTML = "";
+
+        checklistItems.forEach((item,index) => {
+
+            const col = document.createElement("div");
+
+            col.className = "col-md-6";
+
+            col.innerHTML = `
+
+                <div class="checklist-item d-flex align-items-center justify-content-between ${item.completed?'completed':''}"
+                     onclick="toggleChecklist(${item.id})">
+
+                    <div class="d-flex align-items-center gap-3">
+
+                        <input type="checkbox"
+                               class="custom-checkbox form-check-input m-0"
+                               ${item.completed?'checked':''}
+                               onclick="event.stopPropagation();toggleChecklist(${item.id})">
+
+                        <span class="item-title fw-semibold text-secondary">
+                            ${index+1}. ${item.title}
+                        </span>
+
+                    </div>
+
+                    <button class="btn btn-sm btn-link text-decoration-none text-danger p-0"
+                            onclick="event.stopPropagation();switchTab('${item.section}')"
+                            title="Go to section">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+            `;
+
+            container.appendChild(col);
+
+        });
+
+    }
+
+
+    function toggleChecklist(id) {
+
+        const item = checklistItems.find(i => i.id === id);
+
+        if(item) {
+
+            item.completed = !item.completed;
+
+            renderChecklist();
+
+            updateProgress();
 
         }
 
+    }
 
-        // ==========================================================
-        // TOGGLE CHECKLIST
-        // ==========================================================
 
-        function toggleChecklist(id) {
+    function updateProgress() {
 
-            const item =
-                checklistItems.find(i => i.id === id);
+        const completedCount =
+            checklistItems.filter(i => i.completed).length;
 
+        const percentage =
+            Math.round((completedCount / checklistItems.length) * 100);
 
-            if (item) {
+        document.getElementById("progress-percentage").innerText =
+            percentage + "%";
 
-                item.completed = !item.completed;
+        const progressBar =
+            document.getElementById("main-progress-bar");
 
-                renderChecklist();
-                updateProgress();
+        progressBar.style.width =
+            percentage + "%";
 
-            }
+        progressBar.setAttribute(
+            "aria-valuenow",
+            percentage
+        );
 
-        }
+    }
 
 
-        // ==========================================================
-        // UPDATE PROGRESS
-        // ==========================================================
+    function switchTab(sectionName) {
 
-        function updateProgress() {
+        document.querySelectorAll(".portfolio-section")
+            .forEach(sec => sec.classList.remove("active-section"));
 
-            const completedCount =
-                checklistItems.filter(i => i.completed).length;
+        document.querySelectorAll(".nav-link")
+            .forEach(link => link.classList.remove("active"));
 
-            const percentage =
-                Math.round(
-                    (completedCount / checklistItems.length) * 100
-                );
+        const targetSection =
+            document.getElementById(`section-${sectionName}`);
 
+        if(targetSection)
+            targetSection.classList.add("active-section");
 
-            document.getElementById(
-                "progress-percentage"
-            ).innerText = percentage + "%";
+        let btnId = "tab-dashboard";
 
+        if(sectionName === "profile")
+            btnId = "tab-profile";
 
-            const progressBar =
-                document.getElementById(
-                    "main-progress-bar"
-                );
+        else if(sectionName === "projects")
+            btnId = "tab-projects";
 
+        else if(sectionName === "activities")
+            btnId = "tab-activities";
 
-            progressBar.style.width =
-                percentage + "%";
+        else if(sectionName === "career")
+            btnId = "tab-career";
 
+        else if(sectionName === "reflections")
+            btnId = "tab-reflections";
 
-            progressBar.setAttribute(
-                "aria-valuenow",
-                percentage
-            );
+        const activeBtn =
+            document.getElementById(btnId);
 
-        }
+        if(activeBtn)
+            activeBtn.classList.add("active");
 
+        window.scrollTo({
+            top:250,
+            behavior:"smooth"
+        });
 
-        // ==========================================================
-        // TAB SWITCHING
-        // ==========================================================
+    }
 
-        function switchTab(sectionName) {
-
-            // Hide all sections
-            document
-                .querySelectorAll(".portfolio-section")
-                .forEach(sec => {
-
-                    sec.classList.remove(
-                        "active-section"
-                    );
-
-                });
-
-
-            // Remove active class from nav buttons
-            document
-                .querySelectorAll(".nav-link")
-                .forEach(link => {
-
-                    link.classList.remove("active");
-
-                });
-
-
-            // Show selected section
-            const targetSection =
-                document.getElementById(
-                    `section-${sectionName}`
-                );
-
-
-            if (targetSection) {
-
-                targetSection.classList.add(
-                    "active-section"
-                );
-
-            }
-
-
-            // Determine corresponding navigation button
-            let btnId = "tab-dashboard";
-
-
-            if (sectionName === "profile") {
-
-                btnId = "tab-profile";
-
-            }
-
-            else if (sectionName === "projects") {
-
-                btnId = "tab-projects";
-
-            }
-
-            else if (sectionName === "activities") {
-
-                btnId = "tab-activities";
-
-            }
-
-            else if (sectionName === "career") {
-
-                btnId = "tab-career";
-
-            }
-
-            else if (sectionName === "reflections") {
-
-                btnId = "tab-reflections";
-
-            }
-
-
-            // Highlight active navigation button
-            const activeBtn =
-                document.getElementById(btnId);
-
-
-            if (activeBtn) {
-
-                activeBtn.classList.add("active");
-
-            }
-
-
-            // Scroll smoothly back to top of container
-            window.scrollTo({
-                top: 250,
-                behavior: "smooth"
-            });
-
-        }
-
-    </script>
+</script>
 
 </body>
 </html>
